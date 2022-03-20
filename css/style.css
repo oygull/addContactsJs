@@ -37,7 +37,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 .contact-form{
-  margin-top: 10px;
+  margin-top: 26px;
   display: flex;
   flex-direction: column;
 }
@@ -89,6 +89,7 @@ input {
   border: 3px solid transparent;
   font-weight: bold;
   margin-top: 20px;
+  border-radius: 5px;
 }
 .contact-btn:hover{
  opacity: 0.6;
@@ -103,6 +104,7 @@ input {
 .category{
   margin-right: 10px;
   margin-bottom: 0;
+  font-weight: bold;
 }
 .contact-item{
   margin-bottom: 16px;
@@ -113,4 +115,48 @@ input {
 }
 .nav-link{
   color: #000 !important;
+}
+.contact-header{
+  display: flex;
+  justify-content: space-between;
+}
+.sorting{
+  height: 35px;
+  background-color: #b9b2ee;
+  border: none;
+  color: #fff;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+.bxs-phone-call{
+  color: rgb(3, 189, 3);
+  font-size: 20px;
+  position: relative;
+  bottom: -3px;
+  margin-right: 16px;
+}
+.delete-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 20px;
+}
+
+@media screen and (max-width:976px) {
+  .content{
+    flex-direction: column;
+    width: 90%;
+  }
+  .contact-box{
+    width: 100%;
+  }
+  .form-box{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .contact-form{
+    width: 100%;
+  }
 }
