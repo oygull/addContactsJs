@@ -4,40 +4,38 @@ let lastName = document.getElementById("lastName");
 let telNum = document.getElementById("telNum");
 let firstList = document.getElementById('firstList');
 let category = document.getElementById('category');
-let relativesBtn = document.getElementById('profile-tab');
-let secondList = document.getElementById('secondList');
-
+let elSorting = document.getElementById('sorting')
+let newArr = [];
 let contacts = [
   {
     firstName: 'Nozigul',
     lastName: 'Ibrokhimova',
     telNum: '+998995643245',
-    categoryItem: 'relatives'
+    categoryItem: 'relative'
   },
    {
     firstName: 'Laylo',
     lastName: 'Kasimaliyeva',
     telNum: '+998995643245',
-    categoryItem: 'friends'
+    categoryItem: 'friend'
   },
    {
     firstName: 'Jaloliddin',
     lastName: 'Boboyev',
     telNum: '+998995643245',
-    categoryItem: 'relatives'
+    categoryItem: 'relative'
   },
   {
     firstName: 'Khadichabegim',
     lastName: 'Rakhimova',
     telNum: '+998990012838',
-    categoryItem: 'friends'
+    categoryItem: 'friend'
   }
 ] ;
 showItems(contacts);
 
 contactForm.addEventListener("submit", (e)=>{
 
-  let newArr = []
   e.preventDefault();
   let person =
     {
@@ -75,5 +73,21 @@ function showItems(e){
 
 
 
+elSorting.addEventListener('click', sortingItems);
 
- 
+function sortingItems(e){
+
+
+ if(e.target.value='friend'){
+    firstList.innerHTML='';
+    let removedArr = []
+    contacts.forEach((el)=>{
+     if(el.categoryItem=='friend'){
+      removedArr.push(el)
+     }
+    })
+    showItems(removedArr);
+  }
+
+}
+

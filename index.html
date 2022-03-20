@@ -16,46 +16,29 @@
 
   <div class="content">
     <div class="form-box">
-      <h1 class="title">Add someone</h1>
+      <h1 class="title-add">Add someone</h1>
       <form class="contact-form" id="contactForm">
         <input id="firstName" type="text" placeholder="First Name" required>
         <input id="lastName" type="text" placeholder="Last Name" required>
         <input id="telNum" type="number" placeholder="Phone Number" required>
-        <select name="category" id="category">
-          <option value="all">All</option>
-          <option value="relatives">Relativs</option>
-          <option value="friends">Friends</option>
+        <select class="contact-select" name="category" id="category">
+          <option value="relative">Relativs</option>
+          <option value="friend">Friends</option>
         </select>
-        <button type="submit">Add</button>
+        <button class="contact-btn" type="submit">Add</button>
       </form>
     </div>
     <div class="contact-box">
       <h1 class="title">My List</h1>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Relatives</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Friends</button>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <ul id="firstList" class="contact-list">
-    
-          </ul>
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <ul class="secondList">
+      <select name="sorting" id="sorting">
+        <option value="all">All</option>
+        <option id="relativesBtn" value="relatives">Relatives</option>
+        <option value="friends">Friends</option>
+      </select>
 
-          </ul>
-        </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-      </div>
-      
+      <ul id="firstList" class="contact-list">
+    
+      </ul>
     </div>
   </div>
 
