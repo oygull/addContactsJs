@@ -3,8 +3,9 @@ let firstName = document.getElementById("firstName");
 let lastName = document.getElementById("lastName");
 let telNum = document.getElementById("telNum");
 let firstList = document.getElementById('firstList');
-let category = document.getElementById('category');
-let elSorting = document.getElementById('sorting')
+let chooseType = document.getElementById('chooseType');
+let elBtnGroup = document.querySelector('.btn-group')
+
 let newArr = [];
 let contacts = [
   {
@@ -12,28 +13,28 @@ let contacts = [
     firstName: 'Nozigul',
     lastName: 'Ibrokhimova',
     telNum: '+998995643245',
-    categoryItem: 'relative'
+    categoryItem: 'Relatives'
   },
    {
     id:2,
     firstName: 'Laylo',
     lastName: 'Kasimaliyeva',
     telNum: '+998995643245',
-    categoryItem: 'friend'
+    categoryItem: 'Friends'
   },
    {
     id:3,
     firstName: 'Jaloliddin',
     lastName: 'Boboyev',
     telNum: '+998995643245',
-    categoryItem: 'relative'
+    categoryItem: 'Relatives'
   },
   {
     id:4,
     firstName: 'Khadichabegim',
     lastName: 'Rakhimova',
     telNum: '+998990012838',
-    categoryItem: 'friend'
+    categoryItem: 'Friends'
   }
 ] ;
 showItems(contacts);
@@ -46,7 +47,7 @@ contactForm.addEventListener("submit", (e)=>{
       firstName: firstName.value,
       lastName: lastName.value,
       telNum: telNum.value,
-      categoryItem: category.value
+      categoryItem: chooseType.value
     }
     newArr.push(person) ;
 
@@ -77,33 +78,34 @@ function showItems(e){
  });
 }
 
-
-
-elSorting.addEventListener('click', sortingItems);
 let newArr2 = contacts.concat(newArr);
 
-function sortingItems(e){
-  firstList.innerHTML='';
+elBtnGroup.addEventListener('click', (e)=>{
+  console.log(e.target.textContent);
+   let newTypeArr = newArr2.filter((item)=>{
+     return item.categoryItem ==e.target.textContent
+   })
+    if(e.target.textContent=='All'){
+      newTypeArr = newArr2;
+    }
+    let newTypeArrOne = newTypeArr.map((item)=>{
+      return `
+      <li class="contact-item">
+      <div >
+      <p class="first-name">${item.firstName}</p>
+      <p class="last-name">${item.lastName}</p>
+    </div>
+    <div>
+      <p class="category">${item.categoryItem}</p>
+      <a href="telto:${item.telNum}" class="tel-num"><i class='bx bxs-phone-call'></i></a>
+      <button onclick="removeItem(${item.id})" class="delete-btn"><i class='bx bxs-x-circle'></i></button>
+    </div>
+      </li>
+      `
+    })
+    firstList.innerHTML = newTypeArrOne.join('');
+})
 
-
-  switch(e.target.value){
-    case "all": 
-      showItems(newArr2);
-    break;
-    case "relatives": 
-    let a = newArr2.filter((el)=>{ 
-     if(el.categoryItem=='relative') return true; 
-      })
-      showItems(a);
-     break;
-     case "friends": 
-     let b = newArr2.filter((el)=>{ 
-      if(el.categoryItem=='friend') return true; 
-       })
-       showItems(b);
-      break;
-  }
-}
 
 function removeItem(e){
   let removedArr=[];

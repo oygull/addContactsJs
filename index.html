@@ -21,22 +21,23 @@
         <input id="firstName" type="text" placeholder="First Name" required>
         <input id="lastName" type="text" placeholder="Last Name" required>
         <input id="telNum" type="number" placeholder="Phone Number" required>
-        <select class="contact-select" name="category" id="category">
-          <option value="relative">Relatives</option>
-          <option value="friend">Friends</option>
-        </select>
+   <input type="text" list="data" id="chooseType">
+   <datalist id="data">
+    <option>Relatives</option>
+    <option>Friends</option>
+   </datalist>
         <button class="contact-btn" type="submit">Add</button>
       </form>
     </div>
     <div class="contact-box">
-      <div class="contact-header">
+    
         <h1 class="title">My List</h1>
-        <select name="sorting" id="sorting" class="sorting">
-          <option value="all">All</option>
-          <option id="relativesBtn" value="relatives">Relatives</option>
-          <option value="friends">Friends</option>
-        </select>
-      </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">All</button>
+          <button type="button" class="btn btn-primary">Relatives</button>
+          <button type="button" class="btn btn-primary">Friends</button>
+        </div>
+        
       <ul  id="firstList" class="contact-list">
     
       </ul>

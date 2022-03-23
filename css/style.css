@@ -160,3 +160,7 @@ input {
     width: 100%;
   }
 }
+.btn{
+  background-color: #b9b2ed !important;
+  border-color: #7765ff !important;
+}
